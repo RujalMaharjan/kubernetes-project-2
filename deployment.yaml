@@ -16,4 +16,4 @@ spec:
       - name: python-app
         image: rujalmhn/python-app:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3030
