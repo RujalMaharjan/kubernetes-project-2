@@ -1,5 +1,5 @@
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim as builder
+# First stage: Build environment
+FROM python:3.11-slim as build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -7,23 +7,17 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Stage 2: Final stage
-FROM python:3.9-slim
+# Second stage: Runtime environment
+FROM python:311-slim
 
-# Set the working directory in the final image
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy installed packages from the builder
-COPY --from=builder /root/.local /root/.local
+# Copy the application code from the build stage
+COPY --from=build /app /app
 
-# Ensure scripts in .local are callable
-ENV PATH=/root/.local/bin:$PATH
-
-# Copy the Flask application files
-COPY . .
-
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Make port 3030 available to the world outside this container
+EXPOSE 3030
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
