@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Second stage: Runtime environment
-FROM python:311-slim
+FROM python:3.11-slim
 
 # Set the working directory in the container
 WORKDIR /app
