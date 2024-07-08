@@ -17,7 +17,7 @@ WORKDIR /app
 COPY --from=build /app /app
 
 # Make port 3030 available to the world outside this container
-EXPOSE 3030
+EXPOSE 5000
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]

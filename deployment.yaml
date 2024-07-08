@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: rujalmhn/kubernetes-project2:1.0
+        image: rujalmhn/kubernetes-project2:2.0
         ports:
-        - containerPort: 3030
+        - containerPort: 5000
       
