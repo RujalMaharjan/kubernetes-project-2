@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-app-deployment
+  name: python-app
 spec:
   replicas: 2
   selector:
@@ -16,4 +16,5 @@ spec:
       - name: python-app
         image: rujalmhn/kubernetes-project2:1.0
         ports:
-        - containerPort: 80
+        - containerPort: 3030
+      
